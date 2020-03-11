@@ -4,24 +4,24 @@ var Queue = function() {
   var someInstance = {
   };
   someInstance.storage = {}; 
-  _.extend(someInstance, stackMethods)
+  _.extend(someInstance, queueMethods)
 
   return someInstance;
 };
 
 var queueMethods = {};
 
-stackMethods.enqueue = function(value) {
+queueMethods.enqueue = function(value) {
 	let firstIndex = Object.keys(this.storage)[0]; 
 	this.storage[firstIndex+this.size()] = value;
 };
-stackMethods.dequeue = function() {
+queueMethods.dequeue = function() {
     let element =this.storage[Object.keys(this.storage)[0]];
     delete this.storage[Object.keys(this.storage)[0]];
     return element;
 };
 
-stackMethods.size = function() {
+queueMethods.size = function() {
 
 	return Object.keys(this.storage).length;
 };
